@@ -12,7 +12,6 @@ func TestIsOne(t *testing.T) {
 	v := IsOne(i)
 
 	if !v {
-		t.Error("%v != %v", i, 1)
+		t.Errorf("%v != %v", i, 1)
 	}
 }
-
