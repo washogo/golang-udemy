@@ -1,3 +1,6 @@
 2023/01/14 22:50:29 main.go:15: test
 2023/01/14 23:07:51 base.go:36: near "EXITS": syntax error
 2023/01/14 23:08:25 base.go:36: near "EXIST": syntax error
+2023/01/15 00:11:56 base.go:49: incomplete input
+2023/01/15 00:12:35 base.go:49: incomplete input
+2023/01/15 00:13:12 base.go:46: incomplete input

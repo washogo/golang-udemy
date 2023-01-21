@@ -17,6 +17,7 @@ var err error
 
 const (
 	tableNameUser = "users"
+	tableNameTodo = "todos"
 )
 
 func init() {
@@ -35,7 +36,17 @@ func init() {
 
 	_, err := Db.Exec(cmdU)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatalln(err)
+	}
+
+	cmdT := fmt.Sprintf(`CREATE TABLE IF NOT EXISTS %s(
+		id INTEGER PRIMARY KEY AUTOINCREMENT,
+		content TEXT,
+		user_id INTEGER,
+		created_at DATETIME)`, tableNameTodo)
+	_, err = Db.Exec(cmdT)
+	if err != nil {
+		log.Fatalln(err)
 	}
 }
 
