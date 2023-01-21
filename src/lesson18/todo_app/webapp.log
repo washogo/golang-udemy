@@ -5,3 +5,12 @@
 2023/01/15 00:12:35 base.go:49: incomplete input
 2023/01/15 00:13:12 base.go:46: incomplete input
 2023/01/21 16:12:10 todo.go:78: near "where": syntax error
+2023/01/21 18:35:03 base.go:61: unrecognized token: ":"
+2023/01/21 18:36:44 base.go:63: unrecognized token: ":"
+2023/01/21 18:38:43 base.go:63: unrecognized token: ":"
+2023/01/21 18:39:53 base.go:63: unrecognized token: ":"
+2023/01/21 18:40:33 base.go:63: unrecognized token: ":"
+2023/01/21 18:43:54 base.go:63: unrecognized token: ":"
+2023/01/21 18:46:06 base.go:57: unrecognized token: ":"
+2023/01/21 18:50:16 base.go:57: unrecognized token: ":"
+2023/01/21 18:51:14 base.go:57: unrecognized token: ":"
