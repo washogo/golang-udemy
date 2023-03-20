@@ -63,6 +63,11 @@ func createUUID() (uuidobj uuid.UUID) {
 	return uuidobj
 }
 
+/*
+crypto/sha1パッケージのsha1.Sum関数を使用してSHA1ハッシュを計算
+
+SHA1はその脆弱性から暗号化目的ではもはや安全とは考えられておらず、代わりにSHA256やSHA3などのより強力なハッシュ関数が推奨されている
+*/
 func Encrypt(plaintext string) (cryptext string) {
 	cryptext = fmt.Sprintf("%x", sha1.Sum([]byte(plaintext)))
 	return cryptext

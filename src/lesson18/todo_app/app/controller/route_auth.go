@@ -8,7 +8,12 @@ import (
 
 func signup(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "GET" {
-		generateHTML(w, nil, "layout", "public_navbar", "signup")
+		_, err := session(w, r)
+		if err != nil {
+			generateHTML(w, nil, "layout", "public_navbar", "signup")
+		} else {
+			http.Redirect(w, r, "/todos", http.StatusFound)
+		}
 	} else if r.Method == "POST" {
 		err := r.ParseForm()
 		if err != nil {
@@ -28,7 +33,12 @@ func signup(w http.ResponseWriter, r *http.Request) {
 }
 
 func login(w http.ResponseWriter, r *http.Request) {
-	generateHTML(w, nil, "layout", "public_navbar", "login")
+	_, err := session(w, r)
+	if err != nil {
+		generateHTML(w, nil, "layout", "public_navbar", "login")
+	} else {
+		http.Redirect(w, r, "/todos", http.StatusFound)
+	}
 }
 
 func authenticate(w http.ResponseWriter, r *http.Request) {
@@ -44,6 +54,11 @@ func authenticate(w http.ResponseWriter, r *http.Request) {
 			log.Println(err)
 		}
 
+		/*
+			cookieを生成してレスポンスヘッダに追加
+			HTTPクッキーは、クライアント側に少量のデータを保存し、その後のリクエストごとにサーバーに送り返す方法
+			一般的には、ログイン情報、ショッピングカート、ユーザー設定など、複数のリクエストにまたがるユーザーの状態情報を保持するために使用される
+		*/
 		cookie := http.Cookie{
 			Name:     "_cookie",
 			Value:    session.UUID,
